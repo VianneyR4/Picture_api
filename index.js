@@ -14,8 +14,8 @@ server.use(bodyParser.json());
 // ## confige routes ...
 server.get('/', (req, res) => {
   res.setHeader('Content-Type', 'text/html');
-  // res.status(200).send('<h1>The server is running</h1>');
-  res.status(200).json({'App': 'UjatCare Test App', 'message': `The server is running at ${port}`});
+  res.status(200).send('<h1>The server is running</h1>');
+  // res.status(200).json({'App': 'UjatCare Test App', 'message': `The server is running at ${port}`});
 });
 server.use('/api/v1/', apiRouter.router);
 
