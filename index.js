@@ -1,6 +1,9 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import apiRouter from './src/routes/apiRouter';
+import swaggerUi from 'swagger-ui-express';
+import Docs from './swagger.json';
+
 import cors from 'cors';
 
 const server = express();
@@ -10,6 +13,9 @@ server.use(cors());
 // ## body-parser config ...
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(bodyParser.json());
+
+// ## documentation config with swagger ...
+server.use('/api-docs',swaggerUi.serve, swaggerUi.setup(Docs));
 
 // ## confige routes ...
 server.get('/', (req, res) => {

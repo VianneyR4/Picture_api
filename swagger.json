@@ -1,0 +1,142 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0",
+      "title": "UjatCare Test API",
+      "description": "Documentation for UjatCare Test API",
+      "contact":  {
+        "name": "Vianney Rwicha"
+      },
+      "servers": ["localhost:3000"]
+    },
+    "host": "localhost:3000",
+    "host-local": "localhost:3000",
+    "basePath": "/api/v1",
+    "securityDefinitions": {},
+    "schemes": [
+      "http",
+      "https"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "paths": {
+        "/register": {
+          "post": {
+            "description": "This endpoint allows to creat a new user",
+            "summary": "create a user",
+            "tags": [
+              "All Endpoints"
+            ],
+            "operationId": "create-user",
+            "deprecated": false,
+            "produces": [
+              "application/json"
+            ],
+            "consumes": [
+              "application/x-www-form-urlencoded"
+            ],
+            "parameters": [
+              {
+                "name": "email",
+                "in": "formData",
+                "required": true,
+                "default": "vrwicha@ujatcare.com",
+                "type": "string"
+              },
+              {
+                "name": "first_name",
+                "in": "formData",
+                "required": true,
+                "default": "Vianney",
+                "type": "string"
+              },
+              {
+                "name": "last_name",
+                "in": "formData",
+                "required": true,
+                "default": "Rwicha",
+                "type": "string"
+              },
+              {
+                "name": "password",
+                "in": "formData",
+                "required": true,
+                "default": "123456",
+                "type": "string"
+              },
+              {
+                "name": "isActive",
+                "in": "formData",
+                "required": false,
+                "default": true,
+                "type": "boolean"
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "user created successfully",
+                "headers": {}
+              }
+            }
+          }
+        },
+        "/login": {
+          "post": {
+            "description": "This endpoint for login",
+            "summary": "Login user",
+            "tags": [
+              "All Endpoints"
+            ],
+            "operationId": "login-user",
+            "deprecated": false,
+            "produces": [
+              "application/json"
+            ],
+            "consumes": [
+              "application/x-www-form-urlencoded"
+            ],
+            "parameters": [
+              {
+                "name": "Authorization",
+                "in": "header",
+                "required": true,
+                "default": "Bearer <token>",
+                "type": "string",
+                "description": "This is the Bearer token. Submit the token in the format 'Bearer [token]' in the header 'Authorization'"
+              },
+              {
+                "name": "Key",
+                "in": "header",
+                "required": true,
+                "default": "RoddXUVwoAtK0IbM6ugGNENizaAEam5bWUgBdfvurZ0e3eiMRe9DMRPdh55nrmNW7Y5oLdOchGFRdhuUuOS39ySsSONr3Xbr9viYpSGhxvgAcXUgJlVuPlFhdQEYNhVTpC8jgjkghjhka787eJHJKHujyuhsa6",
+                "type": "string"
+              },
+              {
+                "name": "email",
+                "in": "formData",
+                "required": true,
+                "default": "vrwicha@ujatcare.com",
+                "type": "string"
+              },
+              {
+                "name": "password",
+                "in": "formData",
+                "required": true,
+                "default": "123456",
+                "type": "string"
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "user created successfully!",
+                "headers": {}
+              }
+            }
+          }
+        }
+    }
+}  
