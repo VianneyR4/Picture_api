@@ -1,7 +1,8 @@
 import bcrypt from "bcrypt";
-import { Jwt } from "jsonwebtoken";
 import asyncLib from "async";
 import models from "../../models";
+import jwt from "../../token/jwt";
+
 
 // Regex Lib ...
 const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -71,6 +72,53 @@ module.exports = {
 
     },
     login: function (req, res){
-        return res.status(200).json({ 'title': 'Login page'});
+        
+        let email     = req.body.email;
+        let password  = req.body.password;
+        
+        if (email == null || password == null){
+            return res.status(400).json({ 'error': 'missing parameters!' });
+        }
+
+        // Authantification with waterfall ...
+        asyncLib.waterfall([
+            (done) => {
+                models.Users.findOne({
+                        where: { email: email }
+                    })
+                    .then((UserFound) => {
+                        done(null, UserFound);
+                    })
+                    .catch((err) => {
+                        return res.status(500).json({ 'error': 'Unable to verif user!' })
+                    })
+            },
+            (UserFound, done) => {
+                if (UserFound) {
+                    bcrypt.compare(password, UserFound.password, (errBcrypt, resultBcrypt) => {
+                        done(null, resultBcrypt, UserFound);
+                    });
+                } else {
+                    return res.status(404).json({ 'error': 'Email not found!' })
+                }
+            },
+            (resultBcrypt, UserFound) => {
+                if (resultBcrypt) {
+                    return res.status(200).json({
+                        'msg': 'login successfully!',
+                        'UsersId': UserFound.id,
+                        'token': jwt.generateToken(UserFound),
+                    })
+                } else {
+                    return res.status(404).json({ 'error': 'Invalid password!' })
+                }
+            }
+        ], (err) => {
+            if (!err) {
+                return res.status(200).json({ 'msg': 'User connected successfully!' });
+            } else {
+                return res.status(400).json({ 'error': 'An arror has occured while the user connexion...' });
+            }
+        });
     }
 }

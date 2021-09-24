@@ -6,7 +6,7 @@ exports.router = (() => {
 
     // user routers ...
     apiRouter.post('/register', userCtrl.register);
-    apiRouter.get('/login', userCtrl.login);
+    apiRouter.post('/login', userCtrl.login);
 
     return apiRouter;
 })();
