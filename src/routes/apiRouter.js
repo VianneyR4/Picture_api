@@ -5,7 +5,8 @@ exports.router = (() => {
     let apiRouter = express.Router();
 
     // user routers ...
-    apiRouter.get('/login', userCtrl.test);
+    apiRouter.post('/register', userCtrl.register);
+    apiRouter.get('/login', userCtrl.login);
 
     return apiRouter;
 })();
