@@ -86,6 +86,45 @@
         },
         "/login": {
           "post": {
+            "description": "This is a endpoint for login",
+            "summary": "Login user",
+            "tags": [
+              "All Endpoints"
+            ],
+            "operationId": "login-user",
+            "deprecated": false,
+            "produces": [
+              "application/json"
+            ],
+            "consumes": [
+              "application/x-www-form-urlencoded"
+            ],
+            "parameters": [
+              {
+                "name": "email",
+                "in": "formData",
+                "required": true,
+                "default": "vrwicha@ujatcare.com",
+                "type": "string"
+              },
+              {
+                "name": "password",
+                "in": "formData",
+                "required": true,
+                "default": "123456",
+                "type": "string"
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "user loged in successfully!",
+                "headers": {}
+              }
+            }
+          }
+        },
+        "/user/profile": {
+          "post": {
             "description": "This endpoint for login",
             "summary": "Login user",
             "tags": [
