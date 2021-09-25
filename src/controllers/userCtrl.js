@@ -16,7 +16,6 @@ module.exports = {
         let first_name  = req.body.first_name;
         let last_name   = req.body.last_name;
         let password    = req.body.password;
-        let isActive    = true;
         
         // verification of variables ...
         if (email == null || first_name == null || last_name == null || password == null) return res.status(400).json({ 'error' : 'missing parameters' });
@@ -84,7 +83,7 @@ module.exports = {
         asyncLib.waterfall([
             (done) => {
                 models.Users.findOne({
-                        where: { email: email }
+                        where: { email: email, isActive: true }
                     })
                     .then((UserFound) => {
                         done(null, UserFound);
@@ -122,9 +121,12 @@ module.exports = {
         });
     },
     getProfileUser: function (req, res) {
-        // Params ...
-        let headerAuth = req.headers['authorization'];
-        let myUserId = jwt.getUserId(headerAuth);
+
+        // get token from client params...
+        let headersAuth = req.headers['authorization'];
+
+        // call the jwt func to check if the token is still valid ...
+        let myUserId = jwt.getUserId(headersAuth); // the token expire after 1h ...
 
         if (myUserId < 0) {
             return res.status(400).json({ 'error': 'You must be connected first...' });
@@ -142,13 +144,15 @@ module.exports = {
                             'userData' : userData
                         })
                     } else {
-                        return res.status(400).json({ 'error' : 'User not exist' })
+                        return res.status(400).json({ 'error' : 'You must be connected first...' })
                     }
                 })
                 .catch((err) => {
-                    return res.status(500).json({ 'error': `An arror has occured when detting user data... \n [ERROR:: ${err}]` });
+                    return res.status(500).json({ 'error': `An arror has occured when getting user data... \n [ERROR:: ${err}]` });
                 })
             }
-        ])
+        ], (err) => {
+            return res.status(500).json({ 'error': `An arror has occured when getting user data... \n [ERROR:: ${err}]` });
+        })
     }
 }

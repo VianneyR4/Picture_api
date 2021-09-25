@@ -19,9 +19,9 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Images.init({
-    idUSERS: DataTypes.INTEGER,
     title: DataTypes.STRING,
-    description: DataTypes.STRING,
+    description: DataTypes.TEXT,
+    image: DataTypes.STRING,
     isActive: DataTypes.BOOLEAN
   }, {
     sequelize,
