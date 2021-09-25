@@ -120,5 +120,35 @@ module.exports = {
                 return res.status(400).json({ 'error': 'An arror has occured while the user connexion...' });
             }
         });
+    },
+    getProfileUser: function (req, res) {
+        // Params ...
+        let headerAuth = req.headers['authorization'];
+        let myUserId = jwt.getUserId(headerAuth);
+
+        if (myUserId < 0) {
+            return res.status(400).json({ 'error': 'You must be connected first...' });
+        }
+
+        asyncLib.waterfall([
+            () => {
+                models.Users.findOne({
+                    where: { id : myUserId }
+                })
+                .then((userData) => {
+                    if (userData) {
+                        return res.status(200).json({ 
+                            'message' : 'successful',
+                            'userData' : userData
+                        })
+                    } else {
+                        return res.status(400).json({ 'error' : 'User not exist' })
+                    }
+                })
+                .catch((err) => {
+                    return res.status(500).json({ 'error': `An arror has occured when detting user data... \n [ERROR:: ${err}]` });
+                })
+            }
+        ])
     }
 }
