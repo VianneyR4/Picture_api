@@ -5,8 +5,6 @@ import swaggerUi from 'swagger-ui-express';
 import Docs from './swagger.json';
 import path from 'path';
 
-import uploadFileMid from "./src/middlewares/uploadFile";
-
 import cors from 'cors';
 
 const server = express();
@@ -34,14 +32,6 @@ server.get('/', (req, res) => {
   res.status(200).json({'App': 'UjatCare Test App', 'message': `The server is running at ${port}`});
 });
 server.use('/api/v1/', apiRouter.router);
-
-
-// test multer ...
-server.post("/uploadfile", uploadFileMid.single('image_image'), (req, res) => {
-  res.status(201).json({"msg": "successful" });
-});
-// end test multer ...
-
 
 // ## launch server ...
 const port = process.env.PORT || 3000;
