@@ -124,13 +124,13 @@
           }
         },
         "/user/profile": {
-          "post": {
-            "description": "This endpoint for login",
-            "summary": "Login user",
+          "get": {
+            "description": "Show profile of the user",
+            "summary": "display user",
             "tags": [
               "All Endpoints"
             ],
-            "operationId": "login-user",
+            "operationId": "profile-user",
             "deprecated": false,
             "produces": [
               "application/json"
@@ -153,25 +153,11 @@
                 "required": true,
                 "default": "RoddXUVwoAtK0IbM6ugGNENizaAEam5bWUgBdfvurZ0e3eiMRe9DMRPdh55nrmNW7Y5oLdOchGFRdhuUuOS39ySsSONr3Xbr9viYpSGhxvgAcXUgJlVuPlFhdQEYNhVTpC8jgjkghjhka787eJHJKHujyuhsa6",
                 "type": "string"
-              },
-              {
-                "name": "email",
-                "in": "formData",
-                "required": true,
-                "default": "vrwicha@ujatcare.com",
-                "type": "string"
-              },
-              {
-                "name": "password",
-                "in": "formData",
-                "required": true,
-                "default": "123456",
-                "type": "string"
               }
             ],
             "responses": {
               "200": {
-                "description": "user created successfully!",
+                "description": "user data are ready!",
                 "headers": {}
               }
             }
