@@ -3,26 +3,6 @@ import fs from 'fs';
 import randomstring from 'randomstring';
 import path from 'path';
 
-
-// function destination(file) {
-//     let mime = file.mimetype;
-//     let arr = mime.split('/');
-//     let type = arr[0];
-//     let start = `/static/uploads/${type}/`;
-//     let midlle = start + (new Date().getFullYear()) + "/";
-//     let final = midlle + (new Date().getMonth() + 1);
-//     let dest = [start, midlle, final];
-//     for (var i = 0; i < dest.length; i++) {
-//         if (!fs.existsSync(dest[i])) {
-//             fs.mkdir(dest[i], e => {
-//                 if (e) throw e;
-//             });
-//         }
-//     }
-
-//     return final;
-// }
-
 function getType(src) {
     let mp3 = ["mpeg"];
     if (mp3.indexOf(src) > -1) {
