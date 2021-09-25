@@ -70,18 +70,20 @@ module.exports = {
             return res.status(400).json({ 'error': 'You must be connected first...' });
         }
 
-        // let filter = req.body.filter
+        let filter = req.params.filter;
 
         asyncLib.waterfall([
             () => {
                 models.Images.findAll({
                     where: { isActive : true },
-                    include: [{model: models.Users}]
+                    include: [{model: models.Users}],
+                    order: [ ['createdAt', filter=='desc'?'DESC':'ASC'] ]
                 })
                 .then((imageData) => {
                     if (imageData) {
                         return res.status(200).json({ 
-                            'message' : 'successful',
+                            'message' : 'Upleaded successful',
+                            'filter' : `By date of upload '${filter}'`,
                             imageData
                         })
                     } else {

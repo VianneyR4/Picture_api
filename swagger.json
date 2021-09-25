@@ -223,7 +223,7 @@
             }
           }
         },
-        "/images": {
+        "/images/{filter}": {
           "get": {
             "description": "Display images",
             "summary": "display images",
@@ -256,9 +256,9 @@
               },
               {
                 "name": "filter",
-                "in": "header",
-                "required": true,
-                "default": "asc",
+                "in": "path",
+                "required": false,
+                "default": "desc",
                 "type": "string",
                 "enum": ["asc", "desc"]
               }
