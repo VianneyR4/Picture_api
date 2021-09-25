@@ -212,8 +212,55 @@
                 "name": "image",
                 "in": "formData",
                 "required": false,
-                "default": "Background image",
                 "type": "file"
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "user data are ready!",
+                "headers": {}
+              }
+            }
+          }
+        },
+        "/images": {
+          "get": {
+            "description": "Display images",
+            "summary": "display images",
+            "tags": [
+              "All Endpoints"
+            ],
+            "operationId": "get-all-images",
+            "deprecated": false,
+            "produces": [
+              "application/json"
+            ],
+            "consumes": [
+              "application/x-www-form-urlencoded"
+            ],
+            "parameters": [
+              {
+                "name": "Authorization",
+                "in": "header",
+                "required": true,
+                "default": "Bearer <token>",
+                "type": "string",
+                "description": "This is the Bearer token. Submit the token in the format 'Bearer [token]' in the header 'Authorization'"
+              },
+              {
+                "name": "Key",
+                "in": "header",
+                "required": true,
+                "default": "RoddXUVwoAtK0IbM6ugGNENizaAEam5bWUgBdfvurZ0e3eiMRe9DMRPdh55nrmNW7Y5oLdOchGFRdhuUuOS39ySsSONr3Xbr9viYpSGhxvgAcXUgJlVuPlFhdQEYNhVTpC8jgjkghjhka787eJHJKHujyuhsa6",
+                "type": "string"
+              },
+              {
+                "name": "filter",
+                "in": "header",
+                "required": true,
+                "default": "asc",
+                "type": "string",
+                "enum": ["asc", "desc"]
               }
             ],
             "responses": {

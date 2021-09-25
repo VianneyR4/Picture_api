@@ -1,6 +1,7 @@
 import express from "express";
 import userCtrl from "../controllers/userCtrl";
 import fileCtrl from "../controllers/fileCtrl";
+import uploadFileMw from "../middlewares/uploadFile";
 
 exports.router = (() => {
     let apiRouter = express.Router();
@@ -11,7 +12,8 @@ exports.router = (() => {
     apiRouter.get('/user/profile', userCtrl.getProfileUser);
 
     // image routers ...
-    apiRouter.post('/images/upload', fileCtrl.uploadFIle);
+    apiRouter.post('/images/upload', uploadFileMw.single('image'),fileCtrl.uploadFIle);
+    apiRouter.get('/images', fileCtrl.getImages);
 
     return apiRouter;
 })();
