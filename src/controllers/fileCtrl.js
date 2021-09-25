@@ -77,13 +77,13 @@ module.exports = {
                 models.Images.findAll({
                     where: { isActive : true },
                     include: [{model: models.Users}],
-                    order: [ ['createdAt', filter=='desc'?'DESC':'ASC'] ]
+                    order: [ ['createdAt', filter!='asc'?'DESC':'ASC'] ]
                 })
                 .then((imageData) => {
                     if (imageData) {
                         return res.status(200).json({ 
                             'message' : 'Upleaded successful',
-                            'filter' : `By date of upload '${filter}'`,
+                            'filter' : `${filter !== 'desc' && filter !== 'asc' ? `Invalid filter! [applying defaul filter 'desc']` : `By date of upload '${filter}'`} `,
                             imageData
                         })
                     } else {
