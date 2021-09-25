@@ -13,7 +13,7 @@ exports.router = (() => {
 
     // image routers ...
     apiRouter.post('/images/upload', uploadFileMw.single('image'),fileCtrl.uploadFIle);
-    apiRouter.get('/images', fileCtrl.getImages);
+    apiRouter.get('/images/:filter', fileCtrl.getImages);
 
     return apiRouter;
 })();
