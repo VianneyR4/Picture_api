@@ -126,7 +126,7 @@
         "/user/profile": {
           "get": {
             "description": "Show profile of the user",
-            "summary": "display user",
+            "summary": "display user data",
             "tags": [
               "All Endpoints"
             ],
@@ -153,6 +153,67 @@
                 "required": true,
                 "default": "RoddXUVwoAtK0IbM6ugGNENizaAEam5bWUgBdfvurZ0e3eiMRe9DMRPdh55nrmNW7Y5oLdOchGFRdhuUuOS39ySsSONr3Xbr9viYpSGhxvgAcXUgJlVuPlFhdQEYNhVTpC8jgjkghjhka787eJHJKHujyuhsa6",
                 "type": "string"
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "user data are ready!",
+                "headers": {}
+              }
+            }
+          }
+        },
+        "/images/upload": {
+          "post": {
+            "description": "Upload image",
+            "summary": "Where to upload images (jpeg/png/jpg)",
+            "tags": [
+              "All Endpoints"
+            ],
+            "operationId": "upload-image",
+            "deprecated": false,
+            "produces": [
+              "application/json"
+            ],
+            "consumes": [
+              "application/x-www-form-urlencoded"
+            ],
+            "parameters": [
+              {
+                "name": "Authorization",
+                "in": "header",
+                "required": true,
+                "default": "Bearer <token>",
+                "type": "string",
+                "description": "This is the Bearer token. Submit the token in the format 'Bearer [token]' in the header 'Authorization'"
+              },
+              {
+                "name": "Key",
+                "in": "header",
+                "required": true,
+                "default": "RoddXUVwoAtK0IbM6ugGNENizaAEam5bWUgBdfvurZ0e3eiMRe9DMRPdh55nrmNW7Y5oLdOchGFRdhuUuOS39ySsSONr3Xbr9viYpSGhxvgAcXUgJlVuPlFhdQEYNhVTpC8jgjkghjhka787eJHJKHujyuhsa6",
+                "type": "string"
+              },
+              {
+                "name": "title",
+                "in": "formData",
+                "required": true,
+                "default": "Background image",
+                "type": "string"
+              },
+              {
+                "name": "description",
+                "in": "formData",
+                "required": false,
+                "default": "The controller exports updateAnUserImage. updateAnUserImage is an asynchronous function that takes two parameters: request and response. This function checks if there is an _id in the params in request body. if yes then replace all the front slashes to the back slashes in the path string and then update the value of the ProfilePicture to the constant path. In simple words, it means to update the file link in the database.",
+                "type": "string"
+              },
+              {
+                "name": "image",
+                "in": "formData",
+                "required": false,
+                "default": "Background image",
+                "type": "file"
               }
             ],
             "responses": {

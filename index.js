@@ -3,12 +3,15 @@ import bodyParser from 'body-parser';
 import apiRouter from './src/routes/apiRouter';
 import swaggerUi from 'swagger-ui-express';
 import Docs from './swagger.json';
+import fileUpload from 'express-fileupload';
 
 import cors from 'cors';
 
 const server = express();
 
 server.use(cors());
+
+server.use(fileUpload())
 
 // ## body-parser config ...
 server.use(bodyParser.urlencoded({ extended: true }));
