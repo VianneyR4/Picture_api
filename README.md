@@ -61,7 +61,7 @@ npm start
     Note: the base url for testing `Endpoints` is `http://localhost:3000/api/v1/` for exemple to test the Login `Endpoint` is `http://localhost:3000/api/v1/login`
 3. At the end, you can Open your browser and type the url `http://localhost:3000/api-docs/` for the `API Documentation`
 
-4. You can also the both the `Client side` and `Server side` from the `Client side app`, if you don't have the `Client side app` for this API please folow this link `https://github.com/VianneyR4/Picture_ui` and proccess the staps from the `README.MD` file.
+4. You can also test both the `Client side` and `Server side` from the `Client side app`, if you don't have the `Client side app` for this API please folow this link `https://github.com/VianneyR4/Picture_ui` and proccess the staps from the `README.MD` file.
 
 Note: The `authantification` User `Token` validity is for `1h`, it mean after 1h you have to connect sourself again beceause you cannot pass any request if the Token is no more valid (it's like you're note connected)...  (just for `security`).
 
