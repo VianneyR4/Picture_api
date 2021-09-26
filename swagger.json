@@ -41,6 +41,13 @@
             ],
             "parameters": [
               {
+                "name": "API_Key",
+                "in": "header",
+                "required": true,
+                "default": "wNXVlAByDHY8XprgmWzrKyARNY1Ufsnz",
+                "type": "string"
+              },
+              {
                 "name": "email",
                 "in": "formData",
                 "required": true,
@@ -101,6 +108,13 @@
             ],
             "parameters": [
               {
+                "name": "API_Key",
+                "in": "header",
+                "required": true,
+                "default": "wNXVlAByDHY8XprgmWzrKyARNY1Ufsnz",
+                "type": "string"
+              },
+              {
                 "name": "email",
                 "in": "formData",
                 "required": true,
@@ -148,10 +162,10 @@
                 "description": "This is the Bearer token. Submit the token in the format 'Bearer [token]' in the header 'Authorization'"
               },
               {
-                "name": "Key",
+                "name": "API_Key",
                 "in": "header",
                 "required": true,
-                "default": "RoddXUVwoAtK0IbM6ugGNENizaAEam5bWUgBdfvurZ0e3eiMRe9DMRPdh55nrmNW7Y5oLdOchGFRdhuUuOS39ySsSONr3Xbr9viYpSGhxvgAcXUgJlVuPlFhdQEYNhVTpC8jgjkghjhka787eJHJKHujyuhsa6",
+                "default": "wNXVlAByDHY8XprgmWzrKyARNY1Ufsnz",
                 "type": "string"
               }
             ],
@@ -188,10 +202,10 @@
                 "description": "This is the Bearer token. Submit the token in the format 'Bearer [token]' in the header 'Authorization'"
               },
               {
-                "name": "Key",
+                "name": "API_Key",
                 "in": "header",
                 "required": true,
-                "default": "RoddXUVwoAtK0IbM6ugGNENizaAEam5bWUgBdfvurZ0e3eiMRe9DMRPdh55nrmNW7Y5oLdOchGFRdhuUuOS39ySsSONr3Xbr9viYpSGhxvgAcXUgJlVuPlFhdQEYNhVTpC8jgjkghjhka787eJHJKHujyuhsa6",
+                "default": "wNXVlAByDHY8XprgmWzrKyARNY1Ufsnz",
                 "type": "string"
               },
               {
@@ -248,10 +262,10 @@
                 "description": "This is the Bearer token. Submit the token in the format 'Bearer [token]' in the header 'Authorization'"
               },
               {
-                "name": "Key",
+                "name": "API_Key",
                 "in": "header",
                 "required": true,
-                "default": "RoddXUVwoAtK0IbM6ugGNENizaAEam5bWUgBdfvurZ0e3eiMRe9DMRPdh55nrmNW7Y5oLdOchGFRdhuUuOS39ySsSONr3Xbr9viYpSGhxvgAcXUgJlVuPlFhdQEYNhVTpC8jgjkghjhka787eJHJKHujyuhsa6",
+                "default": "wNXVlAByDHY8XprgmWzrKyARNY1Ufsnz",
                 "type": "string"
               },
               {
