@@ -22,3 +22,11 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+# {
+# "name": "API_Key",
+# "in": "header",
+# "required": true,
+# "default": "wNXVlAByDHY8XprgmWzrKyARNY1Ufsnz",
+# "type": "string"
+# },            

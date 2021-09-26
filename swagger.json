@@ -41,13 +41,6 @@
             ],
             "parameters": [
               {
-                "name": "API_Key",
-                "in": "header",
-                "required": true,
-                "default": "wNXVlAByDHY8XprgmWzrKyARNY1Ufsnz",
-                "type": "string"
-              },
-              {
                 "name": "email",
                 "in": "formData",
                 "required": true,
@@ -107,13 +100,6 @@
               "application/x-www-form-urlencoded"
             ],
             "parameters": [
-              {
-                "name": "API_Key",
-                "in": "header",
-                "required": true,
-                "default": "wNXVlAByDHY8XprgmWzrKyARNY1Ufsnz",
-                "type": "string"
-              },
               {
                 "name": "email",
                 "in": "formData",
@@ -202,13 +188,6 @@
                 "description": "This is the Bearer token. Submit the token in the format 'Bearer [token]' in the header 'Authorization'"
               },
               {
-                "name": "API_Key",
-                "in": "header",
-                "required": true,
-                "default": "wNXVlAByDHY8XprgmWzrKyARNY1Ufsnz",
-                "type": "string"
-              },
-              {
                 "name": "title",
                 "in": "formData",
                 "required": true,
@@ -260,13 +239,6 @@
                 "default": "Bearer <token>",
                 "type": "string",
                 "description": "This is the Bearer token. Submit the token in the format 'Bearer [token]' in the header 'Authorization'"
-              },
-              {
-                "name": "API_Key",
-                "in": "header",
-                "required": true,
-                "default": "wNXVlAByDHY8XprgmWzrKyARNY1Ufsnz",
-                "type": "string"
               },
               {
                 "name": "filter",
