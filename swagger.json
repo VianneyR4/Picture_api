@@ -67,13 +67,6 @@
                 "required": true,
                 "default": "123456",
                 "type": "string"
-              },
-              {
-                "name": "isActive",
-                "in": "formData",
-                "required": false,
-                "default": true,
-                "type": "boolean"
               }
             ],
             "responses": {
