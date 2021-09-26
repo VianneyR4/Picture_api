@@ -46,8 +46,11 @@ npm install
 npm start
 ```
 2. Then open an `API tester application` (for exemple `Postman`) and test.
-    Note: the base url for testing `Endpoints` is `http://localhost:3000/api/v1/` for exemple to test the Login `Endpoint` is `http://localhost:3000/api/v1/``login`
-3. At the end, you can Open your browser and the type the url `http://localhost:3000/api-docs/` for the `API Documentation`
+    
+    Note: the base url for testing `Endpoints` is `http://localhost:3000/api/v1/` for exemple to test the Login `Endpoint` is `http://localhost:3000/api/v1/login`
+3. At the end, you can Open your browser and type the url `http://localhost:3000/api-docs/` for the `API Documentation`
+
+Note: The `authantification` User `Token` validity is for `1h`, it mean after 1h you have to connect sourself again beceause you cannot pass any request if the Token is no more valid (it's like you're note connected)...  (just for `security`).
 
 ## Contact the Developer
 
