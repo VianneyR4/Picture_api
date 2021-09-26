@@ -27,7 +27,7 @@ npm install
 3. Import the file `ujatcare_test_db.sql` ( path: `./db/ujatcare_test_db.sql`) in the Databese you created
 4. Open the file `config.js` ( path: `./config/config.json`) and put informations of the Databese you created
 
-    ```
+    ```bash
     # your db username by default is 'root' ...
     "username": "root", 
     
