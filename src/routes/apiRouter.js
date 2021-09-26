@@ -14,6 +14,7 @@ exports.router = (() => {
     // image routers ...
     apiRouter.post('/images/upload', uploadFileMw.single('image'),fileCtrl.uploadFIle);
     apiRouter.get('/images/:filter', fileCtrl.getImages);
+    apiRouter.get('/images/byUser/:filter', fileCtrl.getImagesByUserConnected);
 
     return apiRouter;
 })();

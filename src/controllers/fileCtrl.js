@@ -1,7 +1,6 @@
 import asyncLib from "async";
 import models from "../../models";
 import jwt from "../../token/jwt";
-import path from "path";
 
 // export functions as models ...
 module.exports = {
@@ -82,7 +81,47 @@ module.exports = {
                 .then((imageData) => {
                     if (imageData) {
                         return res.status(200).json({ 
-                            'message' : 'Upleaded successful',
+                            'message' : 'successful',
+                            'filter' : `${filter !== 'desc' && filter !== 'asc' ? `Invalid filter! [applying defaul filter 'desc']` : `By date of upload '${filter}'`} `,
+                            imageData
+                        })
+                    } else {
+                        return res.status(400).json({ 'error' : 'imageData is null...' })
+                    }
+                })
+                .catch((err) => {
+                    return res.status(500).json({ 'error': `An arror has occured when getting user data... \n [ERROR:: ${err}]` });
+                })
+            }
+        ], (err) => {
+            return res.status(500).json({ 'error': `An arror has occured when getting user data... \n [ERROR:: ${err}]` });
+        })
+    },
+    getImagesByUserConnected: function (req, res) {
+
+        // get token from client params...
+        let headersAuth = req.headers['authorization'];
+
+        // call the jwt func to check if the token is still valid ...
+        let myUserId = jwt.getUserId(headersAuth); // the token expire after 1h ...
+
+        if (myUserId < 0) {
+            return res.status(400).json({ 'error': 'You must be connected first...' });
+        }
+
+        let filter = req.params.filter;
+
+        asyncLib.waterfall([
+            () => {
+                models.Images.findAll({
+                    where: { UserId: myUserId, isActive : true },
+                    include: [{model: models.Users}],
+                    order: [ ['createdAt', filter!='asc'?'DESC':'ASC'] ]
+                })
+                .then((imageData) => {
+                    if (imageData) {
+                        return res.status(200).json({ 
+                            'message' : 'successful',
                             'filter' : `${filter !== 'desc' && filter !== 'asc' ? `Invalid filter! [applying defaul filter 'desc']` : `By date of upload '${filter}'`} `,
                             imageData
                         })
