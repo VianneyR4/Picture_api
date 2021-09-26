@@ -249,6 +249,47 @@
               }
             }
           }
+        },
+        "/images/byUser/{filter}": {
+          "get": {
+            "description": "Display images by the connected user",
+            "summary": "display images uploaded by the connected user",
+            "tags": [
+              "All Endpoints"
+            ],
+            "operationId": "get-images-by-user",
+            "deprecated": false,
+            "produces": [
+              "application/json"
+            ],
+            "consumes": [
+              "application/x-www-form-urlencoded"
+            ],
+            "parameters": [
+              {
+                "name": "Authorization",
+                "in": "header",
+                "required": true,
+                "default": "Bearer <token>",
+                "type": "string",
+                "description": "This is the Bearer token. Submit the token in the format 'Bearer [token]' in the header 'Authorization'"
+              },
+              {
+                "name": "filter",
+                "in": "path",
+                "required": false,
+                "default": "desc",
+                "type": "string",
+                "enum": ["asc", "desc"]
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "user data are ready!",
+                "headers": {}
+              }
+            }
+          }
         }
     }
 }  
