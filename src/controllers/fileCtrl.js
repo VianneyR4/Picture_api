@@ -28,8 +28,8 @@ module.exports = {
             return res.status(400).json({ 'error' : `missing parameters title... ${image}`, myBody });
         } else if (title.length <= 4 || title.length >= 225) {
             return res.status(400).json({ 'error': `title must contain betwen 4 and 225 chars! == ${title.length}` });
-        }  else if (image == null){
-            return res.status(400).json({ 'error' : 'upload an image' });
+        }  else if (req.newFileName == undefined){
+            return res.status(400).json({ 'error' : 'upload an image with type: jpeg/jpg/png' });
         }
 
         // Authantification with waterfall ...

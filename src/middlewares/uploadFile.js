@@ -28,12 +28,10 @@ const storage = multer.diskStorage({
 });
 
 const fileFilter = (req, file, cb) => {
-    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/JPEG' || file.mimetype === 'image/png' || file.mimetype === 'image/PNG' ) {
-        cb(null, true);
-    } else if (file.mimetype === 'audio/mp3' || file.mimetype === 'audio/wav' || file.mimetype === 'audio/mpeg') {
+    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/JPEG' || file.mimetype === 'image/jpg' || file.mimetype === 'image/JPG' || file.mimetype === 'image/png' || file.mimetype === 'image/PNG' ) {
         cb(null, true);
     } else {
-        cb(null, true);
+        cb(null, false);
     }
 
     console.log("__Uploaded_file___=>", file);
