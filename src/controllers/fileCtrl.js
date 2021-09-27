@@ -13,22 +13,26 @@ module.exports = {
         let myUserId = jwt.getUserId(headersAuth); // the token expire after 1h ...
 
         if (myUserId < 0) {
-            return res.status(400).json({ 'error': 'You must be connected first...' });
+            // status 404...
+            return res.status(200).json({ 'error': 'You must be connected first...' });
         }
 
         // Parameters...
         let title = req.body.title;
         let description = req.body.description;
-        let image = req.newFilePath+'/'+req.newFileName;
+        let image = (req.file.path).indexOf("public\\") > -1 ? (req.file.path).replace("public\\", "") : (req.file.path).replace("public/", "");;
         let myBody = req.body;
 
         // verification of variables ...
         if (title == null) {
-            return res.status(400).json({ 'error' : `missing parameters title... ${image}`, myBody });
+                    // status 400...
+            return res.status(200).json({ 'error' : `missing parameters title... ${image}`, myBody });
         } else if (title.length <= 4 || title.length >= 225) {
-            return res.status(400).json({ 'error': `title must contain betwen 4 and 225 chars! == ${title.length}` });
+            // status 400...
+            return res.status(200).json({ 'error': `title must contain betwen 4 and 225 chars! == ${title.length}` });
         }  else if (req.newFileName == undefined){
-            return res.status(400).json({ 'error' : 'upload an image with type: jpeg/jpg/png' });
+            // status 400...
+            return res.status(200).json({ 'error' : 'upload an image with type: jpeg/jpg/png' });
         }
 
         // Authantification with waterfall ...
@@ -50,11 +54,13 @@ module.exports = {
                     })
                 })
                 .catch((err) => {
-                    return res.status(500).json({ 'error': `[ERROR:: ${err}]` });
+                    // status 500...
+                    return res.status(200).json({ 'error': `[ERROR:: ${err}]` });
                 })
             }
         ], (err) => {
-            return res.status(500).json({ 'error': `An arror has occured when  upload image... \n [ERROR:: ${err}]` });
+            // status 400...
+            return res.status(200).json({ 'error': `An arror has occured when  upload image... \n [ERROR:: ${err}]` });
         })
     },
     getImages: function (req, res) {
@@ -66,7 +72,8 @@ module.exports = {
         let myUserId = jwt.getUserId(headersAuth); // the token expire after 1h ...
 
         if (myUserId < 0) {
-            return res.status(400).json({ 'error': 'You must be connected first...' });
+            // status 400...
+            return res.status(200).json({ 'error': 'You must be connected first...' });
         }
 
         let filter = req.params.filter;
@@ -82,19 +89,22 @@ module.exports = {
                     if (imageData) {
                         return res.status(200).json({ 
                             'message' : 'successful',
-                            'filter' : `${filter !== 'desc' && filter !== 'asc' ? `Invalid filter! [applying defaul filter 'desc']` : `By date of upload '${filter}'`} `,
+                            'filter' : `${filter !== 'desc' && filter !== 'asc' ? `Invalid filter! [applying defaul filter 'desc']` : filter} `,
                             imageData
                         })
                     } else {
-                        return res.status(400).json({ 'error' : 'imageData is null...' })
+                        // status 400...
+                        return res.status(200).json({ 'error' : 'imageData is null...' })
                     }
                 })
                 .catch((err) => {
-                    return res.status(500).json({ 'error': `An arror has occured when getting user data... \n [ERROR:: ${err}]` });
+                    // status 500...
+                    return res.status(200).json({ 'error': `An arror has occured when getting user data... \n [ERROR:: ${err}]` });
                 })
             }
         ], (err) => {
-            return res.status(500).json({ 'error': `An arror has occured when getting user data... \n [ERROR:: ${err}]` });
+            // status 500...
+            return res.status(200).json({ 'error': `An arror has occured when getting user data... \n [ERROR:: ${err}]` });
         })
     },
     getImagesByUserConnected: function (req, res) {
@@ -106,7 +116,8 @@ module.exports = {
         let myUserId = jwt.getUserId(headersAuth); // the token expire after 1h ...
 
         if (myUserId < 0) {
-            return res.status(400).json({ 'error': 'You must be connected first...' });
+            // status 400...
+            return res.status(200).json({ 'error': 'You must be connected first...' });
         }
 
         let filter = req.params.filter;
@@ -126,15 +137,18 @@ module.exports = {
                             imageData
                         })
                     } else {
-                        return res.status(400).json({ 'error' : 'imageData is null...' })
+                        // status 400...
+                        return res.status(200).json({ 'error' : 'imageData is null...' })
                     }
                 })
                 .catch((err) => {
-                    return res.status(500).json({ 'error': `An arror has occured when getting user data... \n [ERROR:: ${err}]` });
+                    // status 400...
+                    return res.status(200).json({ 'error': `An arror has occured when getting user data... \n [ERROR:: ${err}]` });
                 })
             }
         ], (err) => {
-            return res.status(500).json({ 'error': `An arror has occured when getting user data... \n [ERROR:: ${err}]` });
+            // status 400...
+            return res.status(200).json({ 'error': `An arror has occured when getting user data... \n [ERROR:: ${err}]` });
         })
     }
 }

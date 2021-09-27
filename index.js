@@ -24,7 +24,7 @@ server.use(bodyParser.json({
 server.use('/api-docs',swaggerUi.serve, swaggerUi.setup(Docs));
 
 // ## static directory ...
-server.use(express.static(path.join(__dirname, '/static')));
+server.use(express.static(path.join(__dirname, 'public')));
 
 // ## confige routes ...
 server.get('/', (req, res) => {

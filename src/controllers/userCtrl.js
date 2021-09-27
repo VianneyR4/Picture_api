@@ -76,7 +76,8 @@ module.exports = {
         let password  = req.body.password;
         
         if (email == null || password == null){
-            return res.status(400).json({ 'error': 'missing parameters!' });
+            // status 400...
+            return res.status(200).json({ 'error': 'missing parameters!' });
         }
 
         // Authantification with waterfall ...
@@ -89,7 +90,8 @@ module.exports = {
                         done(null, UserFound);
                     })
                     .catch((err) => {
-                        return res.status(500).json({ 'error': 'Unable to verif user!' })
+                        // status 500...
+                        return res.status(200).json({ 'error': 'Unable to verif user!' })
                     })
             },
             (UserFound, done) => {
@@ -98,25 +100,28 @@ module.exports = {
                         done(null, resultBcrypt, UserFound);
                     });
                 } else {
-                    return res.status(404).json({ 'error': 'Email not found!' })
+                    // status 404...
+                    return res.status(200).json({ 'error': 'Email not found!' })
                 }
             },
             (resultBcrypt, UserFound) => {
                 if (resultBcrypt) {
                     return res.status(200).json({
                         'msg': 'login successfully!',
-                        'UsersId': UserFound.id,
+                        'user': UserFound,
                         'token': jwt.generateToken(UserFound),
                     })
                 } else {
-                    return res.status(404).json({ 'error': 'Invalid password!' })
+                    // status 404...
+                    return res.status(200).json({ 'error': 'Invalid password!' })
                 }
             }
         ], (err) => {
             if (!err) {
                 return res.status(200).json({ 'msg': 'User connected successfully!' });
             } else {
-                return res.status(400).json({ 'error': 'An arror has occured while the user connexion...' });
+                // status 400...
+                return res.status(200).json({ 'error': 'An arror has occured while the user connexion...' });
             }
         });
     },
@@ -129,7 +134,8 @@ module.exports = {
         let myUserId = jwt.getUserId(headersAuth); // the token expire after 1h ...
 
         if (myUserId < 0) {
-            return res.status(400).json({ 'error': 'You must be connected first...' });
+            // status.400...
+            return res.status(200).json({ 'error': 'You must be connected first...' });
         }
 
         asyncLib.waterfall([
@@ -144,15 +150,18 @@ module.exports = {
                             'userData' : userData
                         })
                     } else {
-                        return res.status(400).json({ 'error' : 'You must be connected first...' })
+                        // status 400...
+                        return res.status(200).json({ 'error' : 'You must be connected first...' })
                     }
                 })
                 .catch((err) => {
-                    return res.status(500).json({ 'error': `An arror has occured when getting user data... \n [ERROR:: ${err}]` });
+                    // status 500...
+                    return res.status(200).json({ 'error': `An arror has occured when getting user data... \n [ERROR:: ${err}]` });
                 })
             }
         ], (err) => {
-            return res.status(500).json({ 'error': `An arror has occured when getting user data... \n [ERROR:: ${err}]` });
+            // status 500...
+            return res.status(200).json({ 'error': `An arror has occured when getting user data... \n [ERROR:: ${err}]` });
         })
     }
 }
