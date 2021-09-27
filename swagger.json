@@ -139,13 +139,6 @@
                 "default": "Bearer <token>",
                 "type": "string",
                 "description": "This is the Bearer token. Submit the token in the format 'Bearer [token]' in the header 'Authorization'"
-              },
-              {
-                "name": "API_Key",
-                "in": "header",
-                "required": true,
-                "default": "wNXVlAByDHY8XprgmWzrKyARNY1Ufsnz",
-                "type": "string"
               }
             ],
             "responses": {
