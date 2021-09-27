@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Sep 25, 2021 at 09:54 PM
+-- Generation Time: Sep 27, 2021 at 10:26 AM
 -- Server version: 5.7.32
 -- PHP Version: 7.4.16
 
@@ -43,9 +43,14 @@ CREATE TABLE `Images` (
 --
 
 INSERT INTO `Images` (`id`, `userId`, `title`, `description`, `image`, `isActive`, `createdAt`, `updatedAt`) VALUES
-(1, 1, 'Image title for test', 'The controller exports updateAnUserImage. updateAnUserImage is an asynchronous function that takes two parameters: request and response. This function checks if there is an _id in the params in request body. if yes then replace all the front slashes to the back slashes in the path string and then update the value of the ProfilePicture to the constant path. In simple words, it means to update the file link in the database', '/Users/vianney.rwicha/Documents/Work/Ujat Care/UjatCare_test/static/uploads/8wRb12xIdZVsc2rTTm1t4gpU2rTCkVlo.jpg', 1, '2021-09-25 20:35:00', '2021-09-25 20:35:00'),
-(2, 1, 'Background image', 'The controller exports updateAnUserImage. updateAnUserImage is an asynchronous function that takes two parameters: request and response. This function checks if there is an _id in the params in request body. if yes then replace all the front slashes to the back slashes in the path string and then update the value of the ProfilePicture to the constant path. In simple words, it means to update the file link in the database.', '/Users/vianney.rwicha/Documents/Work/Ujat Care/UjatCare_test/static/uploads/DC4sozq3q5dVMq2luSvvhIDpqX4G2MZi.jpg', 1, '2021-09-25 20:36:34', '2021-09-25 20:36:34'),
-(3, 2, 'Background image', 'The controller exports updateAnUserImage. updateAnUserImage is an asynchronous function that takes two parameters: request and response. This function checks if there is an _id in the params in request body. if yes then replace all the front slashes to the back slashes in the path string and then update the value of the ProfilePicture to the constant path. In simple words, it means to update the file link in the database', '/Users/vianney.rwicha/Documents/Work/Ujat Care/UjatCare_test/static/uploads/GPInOVpusayAhz2850o5mGN5G3glFYRq.jpg', 1, '2021-09-25 21:04:36', '2021-09-25 21:04:36');
+(1, 1, 'Image title for test', 'The extension comes with three pre-built pages to help you get started faster. You can change the text and images and you\'re good to go.', 'uploads/8wRb12xIdZVsc2rTTm1t4gpU2rTCkVlo.jpg', 1, '2021-09-25 20:35:00', '2021-09-25 20:35:00'),
+(2, 1, 'Background image', 'The extension comes with three pre-built pages to help you get started faster. You can change the text and images and you\'re good to go.', 'uploads/DC4sozq3q5dVMq2luSvvhIDpqX4G2MZi.jpg', 1, '2021-09-25 20:36:34', '2021-09-25 20:36:34'),
+(3, 2, 'Background image', 'The extension comes with three pre-built pages to help you get started faster. You can change the text and images and you\'re good to go.', 'uploads/GPInOVpusayAhz2850o5mGN5G3glFYRq.jpg', 1, '2021-09-25 21:04:36', '2021-09-25 21:04:36'),
+(4, 2, 'This is a wallpaper', 'The extension comes with three pre-built pages to help you get started faster. You can change the text and images and you\'re good to go.', 'uploads/ssAF2Oqqet9eWfWkADUgTPkNqT9A2Hik.jpg', 1, '2021-09-26 00:17:47', '2021-09-26 00:17:47'),
+(5, 2, 'This is a wallpaper', 'The extension comes with three pre-built pages to help you get started faster. You can change the text and images and you\'re good to go.', 'undefined/undefined', 0, '2021-09-26 00:18:30', '2021-09-26 00:18:30'),
+(6, 2, 'This is a wallpaper', 'The extension comes with three pre-built pages to help you get started faster. You can change the text and images and you\'re good to go.', 'uploads/hwjoZpYEBr3Xc2fVP6EYtrORe6C0pPf9.png', 1, '2021-09-26 00:23:38', '2021-09-26 00:23:38'),
+(7, 1, 'This is a wallpaper', 'The extension comes with three pre-built pages to help you get started faster. You can change the text and images and you\'re good to go.', 'uploads/VBpclQgOTkZCEeEiIWzPWR80mWBeS1gF.jpg', 1, '2021-09-26 03:23:05', '2021-09-26 03:23:05'),
+(8, 1, 'Image test', 'The extension comes with three pre-built pages to help you get started faster. You can change the text and images and you\'re good to go.', 'uploads/vlGuIwngZWK41hZ1K8Uq95sTqrzskr9k.png', 1, '2021-09-27 08:24:17', '2021-09-27 08:24:17');
 
 -- --------------------------------------------------------
 
@@ -131,7 +136,7 @@ ALTER TABLE `Users`
 -- AUTO_INCREMENT for table `Images`
 --
 ALTER TABLE `Images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `Users`

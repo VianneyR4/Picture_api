@@ -141,7 +141,8 @@ module.exports = {
         asyncLib.waterfall([
             () => {
                 models.Users.findOne({
-                    where: { id : myUserId }
+                    where: { id : myUserId },
+                    include: [{model: models.Images}],
                 })
                 .then((userData) => {
                     if (userData) {
