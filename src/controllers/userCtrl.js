@@ -18,11 +18,13 @@ module.exports = {
         let password    = req.body.password;
         
         // verification of variables ...
-        if (email == null || first_name == null || last_name == null || password == null) return res.status(400).json({ 'error' : 'missing parameters' });
-        else if (first_name.length >= 13 || first_name.length <= 3) return res.status(400).json({ 'error': 'First Name must contain betwen 4 and 12 chars!' });
-        else if (last_name.length >= 13 || last_name.length <= 3) return res.status(400).json({ 'error': 'Last Name must contain betwen 4 and 12 chars!' });
-        else if (!EMAIL_REGEX.test(email)) return res.status(400).json({ 'error': 'Invalid Mail!' });
-        else if (!PASSWORD_REGEX.test(password)) return res.status(400).json({ 'error': 'Password must contain between 6 and 16 digits long and include at least one numeric digit' })
+
+        // status 400...
+        if (email == null || first_name == null || last_name == null || password == null) return res.status(200).json({ 'error' : 'missing parameters' });
+        else if (first_name.length >= 13 || first_name.length <= 3) return res.status(200).json({ 'error': 'First Name must contain betwen 4 and 12 chars!' });
+        else if (last_name.length >= 13 || last_name.length <= 3) return res.status(200).json({ 'error': 'Last Name must contain betwen 4 and 12 chars!' });
+        else if (!EMAIL_REGEX.test(email)) return res.status(200).json({ 'error': 'Invalid Mail!' });
+        else if (!PASSWORD_REGEX.test(password)) return res.status(200).json({ 'error': 'Password must contain between 6 and 16 digits long and include at least one numeric digit' })
         
         // Authantification with waterfall ...
         asyncLib.waterfall([
@@ -35,7 +37,8 @@ module.exports = {
                     done(null, userFound);
                 })
                 .catch((err) => {
-                    return res.status(500).json({ 'error': `Unable to verify if user exist! \n [ERROR:: ${err}]` })
+                    // status 400...
+                    return res.status(200).json({ 'error': `Unable to verify if user exist! \n [ERROR:: ${err}]` })
                 })
             },
             (userFound, done) => {
@@ -44,7 +47,8 @@ module.exports = {
                         done(null, bcryptedPassword);
                     })
                 } else {
-                    return res.status(409).json({ 'error': 'User already exist!' });
+                    // status 409...
+                    return res.status(200).json({ 'error': 'User already exist!' });
                 }
             },
             (bcryptedPassword, done) => {
@@ -62,11 +66,13 @@ module.exports = {
                     })
                 })
                 .catch((err) => {
-                    return res.status(500).json({ 'error': `An arror has occured when added user... \n [ERROR:: ${err}]` });
+                    // status 500...
+                    return res.status(200).json({ 'error': `An arror has occured when added user... \n [ERROR:: ${err}]` });
                 })
             }
         ], (err) => {
-            return res.status(500).json({ 'error': `An arror has occured when added user... \n [ERROR:: ${err}]` });
+            // status 500...
+            return res.status(200).json({ 'error': `An arror has occured when added user... \n [ERROR:: ${err}]` });
         })
 
     },
