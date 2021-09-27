@@ -13,8 +13,8 @@ function getType(src) {
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         // send file path ...
-        req.newFilePath= path.join(__dirname, '../../static/uploads');
-        cb(null, req.newFilePath);
+        // req.newFilePath= '/public/uploads';
+        cb(null, 'public/uploads');
     },
     filename: function (req, file, cb) {
         let mime = file.originalname;
