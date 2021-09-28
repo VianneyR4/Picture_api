@@ -1,3 +1,9 @@
+## Deployed app: https://picture-api-app.herokuapp.com/api-docs/
+
+Use this link to quickly test the `API Documentation`.
+
+Note: for now you cannot be able to pass any request from the deployed `API` beceause i did not deploy the `Database` (for the database i have to buy again an other cloud space for it...)
+
 # Picture API
 
 I wanted to build a website(or any other client with User Interface) and web service that will have 
