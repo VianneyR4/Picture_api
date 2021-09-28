@@ -14,8 +14,8 @@
     "basePath": "/api/v1",
     "securityDefinitions": {},
     "schemes": [
-      "http",
-      "https"
+      "https",
+      "http"
     ],
     "consumes": [
       "application/json"
