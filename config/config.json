@@ -1,11 +1,11 @@
 {
   "development": {
-    "username": "root",
-    "password": "root",
-    "database": "ujatcare_test_db",
-    "host": "127.0.0.1",
+    "username": "sql5440692",
+    "password": "mVM16hkQM5",
+    "database": "sql5440692",
+    "host": "sql5.freesqldatabase.com",
     "dialect": "mysql",
-    "port": "8889"
+    "port": "3306"
   },
   "test": {
     "username": "root",
@@ -16,11 +16,11 @@
     "port": "8889"
   },
   "production": {
-    "username": "root",
-    "password": "root",
-    "database": "ujatcare_test_db",
-    "host": "127.0.0.1",
+    "username": "sql5440692",
+    "password": "mVM16hkQM5",
+    "database": "sql5440692",
+    "host": "sql5.freesqldatabase.com",
     "dialect": "mysql",
-    "port": "8889"
+    "port": "3306"
   }
 }
