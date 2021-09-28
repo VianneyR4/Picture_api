@@ -7,9 +7,9 @@
       "contact":  {
         "name": "Vianney Rwicha"
       },
-      "servers": ["https://picture-api-app.herokuapp.com"]
+      "servers": ["picture-api-app.herokuapp.com"]
     },
-    "host": "https://picture-api-app.herokuapp.com",
+    "host": "picture-api-app.herokuapp.com",
     "host-local": "localhost:3000",
     "basePath": "/api/v1",
     "securityDefinitions": {},
