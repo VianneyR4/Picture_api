@@ -2,7 +2,9 @@
 
 Use this link to quickly test the `API Documentation`.
 
-Note: for now you cannot be able to pass any request from the deployed `API` beceause i did not deploy the `Database` (for the database i have to buy again an other cloud space for it...)
+Note: Hey everyone!!!! for now you can be able to pass requests from the deployed `API`, the `Database` is deployed too. everything is okey now. (link to the deployed client side: `https://picture-frontend-app.herokuapp.com/` ""api integrated )
+
+<!-- beceause i did not deploy the `Database` (for the database i have to buy again an other cloud space for it...) -->
 
 # Picture API
 
@@ -65,6 +67,7 @@ npm start
 2. Then open an `API tester application` (for exemple `Postman`) and test.
     
     Note: the base url for testing `Endpoints` is `http://localhost:3000/api/v1/` for exemple to test the Login `Endpoint` is `http://localhost:3000/api/v1/login`
+
 3. At the end, you can Open your browser and type the url `http://localhost:3000/api-docs/` for the `API Documentation`
 
 4. You can also test both the `Client side` and `Server side` from the `Client side app`, if you don't have the `Client side app` for this API please folow this link `https://github.com/VianneyR4/Picture_ui` and proccess the staps from the `README.MD` file.
