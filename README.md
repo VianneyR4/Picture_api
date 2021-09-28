@@ -1,3 +1,9 @@
+## Deployed app: https://picture-api-app.herokuapp.com/api-docs/
+
+Use this link to quickly test the `API Documentation`.
+
+Note: for now you cannot be able to pass any request from the deployed `API` beceause i did not deploy the `Database` (for the database i have to buy again an other cloud space for it...)
+
 # Picture API
 
 I wanted to build a website(or any other client with User Interface) and web service that will have 
@@ -27,13 +33,24 @@ npm install
 3. Import the file `ujatcare_test_db.sql` ( path: `./db/ujatcare_test_db.sql`) in the Databese you created
 4. Open the file `config.js` ( path: `./config/config.json`) and put informations of the Databese you created
 
-    ```
-    "username": "root", // your db username by default is 'root' ...
-    "password": "root", // your db password by default is ' '(empty) and for MAMP is 'root' ...
-    "database": "ujatcare_test_db", // name of the db you created ...
-    "host": "127.0.0.1", // leave it like this if you're in local ...
-    "dialect": "mysql", // leave this too, is the type of db used ...
-    "port": "8889" // put the port of you db server (this is by default for MAMP) ...
+    ```bash
+    # your db username by default is 'root' ...
+    "username": "root", 
+    
+    # your db password by default is ' '(empty) and for MAMP is 'root' ...
+    "password": "root", 
+    
+    # name of the db you created ...
+    "database": "ujatcare_test_db",
+    
+    # leave it like this if you're in local ...
+    "host": "127.0.0.1",
+    
+    # leave this too, is the type of db used ...
+    "dialect": "mysql",
+    
+    # put the port of you db server (this is by default for MAMP) ...
+    "port": "8889" 
     ```
 
     Note: for more precision give the same config for `developement`, `test`, and `production`.
@@ -49,6 +66,8 @@ npm start
     
     Note: the base url for testing `Endpoints` is `http://localhost:3000/api/v1/` for exemple to test the Login `Endpoint` is `http://localhost:3000/api/v1/login`
 3. At the end, you can Open your browser and type the url `http://localhost:3000/api-docs/` for the `API Documentation`
+
+4. You can also test both the `Client side` and `Server side` from the `Client side app`, if you don't have the `Client side app` for this API please folow this link `https://github.com/VianneyR4/Picture_ui` and proccess the staps from the `README.MD` file.
 
 Note: The `authantification` User `Token` validity is for `1h`, it mean after 1h you have to connect sourself again beceause you cannot pass any request if the Token is no more valid (it's like you're note connected)...  (just for `security`).
 
