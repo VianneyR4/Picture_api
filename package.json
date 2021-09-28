@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --exec babel-node index"
+    "start": "babel-node index.js",
+    "dev": "nodemon --exec babel-node index"
   },
   "keywords": [
     "server",
@@ -16,9 +17,6 @@
   "author": "Vianney Rwicha",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.15.5",
-    "@babel/node": "^7.15.4",
-    "@babel/preset-env": "^7.15.6",
     "nodemon": "^2.0.12"
   },
   "dependencies": {
@@ -37,6 +35,9 @@
     "randomstring": "^1.2.1",
     "sequelize": "^6.6.5",
     "swagger-jsdoc": "^6.1.0",
-    "swagger-ui-express": "^4.1.6"
+    "swagger-ui-express": "^4.1.6",
+    "@babel/core": "^7.15.5",
+    "@babel/node": "^7.15.4",
+    "@babel/preset-env": "^7.15.6"
   }
 }
