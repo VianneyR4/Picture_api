@@ -2,7 +2,9 @@
 
 Use this link to quickly test the `API Documentation`.
 
-Note: Hey everyone!!!! for now you can be able to pass requests from the deployed `API`, the `Database` is deployed too. everything is okey now. (link to the deployed client side: `https://picture-frontend-app.herokuapp.com/` ""api integrated )
+Note: [[ Hey everyone!!!! for now you can be able to pass requests from the deployed `API`, the `Database` is deployed too. everything is okey now. (link to the deployed client side: `https://picture-frontend-app.herokuapp.com/` ""api integrated ) ]]
+
+Note:::: the online database is down, the license has expired unfortunatly, it's mean it's better to test localy 
 
 <!-- beceause i did not deploy the `Database` (for the database i have to buy again an other cloud space for it...) -->
 
